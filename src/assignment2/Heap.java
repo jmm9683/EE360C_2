@@ -108,6 +108,20 @@ public class Heap {
 		return minHeap.size() <= 0;
 	}
 	
+	public int findNodeIndex(int nodeName){
+		for (int i = 0; i < minHeap.size(); i++){
+			if (minHeap.get(i).getNodeName == nodeName)
+				return i;
+		}
+	}
+	public void reHeapify(int index){
+		int parent = parent(index);
+		for (int i = parent; i >= 0; i--){
+			minHeapify(minHeap, i);
+		}
+
+	}
+	
   public String toString() {
 		String output = "";
 		for(int i = 0; i < minHeap.size(); i++) {
