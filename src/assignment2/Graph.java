@@ -47,6 +47,35 @@ public class Graph {
   // should contain every Node in the graph. Note that 
   // root.getMinDistance() = 0
   public ArrayList<Node> findEveryShortestPathLength(Node root) {
+	  int rootName = root.getNodeName();
+	  for (int i = 0; i < vertices.size(); i++) {
+		  if (vertices.get(i).getNodeName() == rootName) {
+			  vertices.get(i).setMinDistance(0);
+		  }
+		  else {
+			  vertices.get(i).setMinDistance(Integer.MAX_VALUE);
+		  }
+	  }
+	  //https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/
+	  minHeap.buildHeap(vertices); //heap of uninitialized distances and root at root
+	  while (!minHeap.isEmpty()) {
+		  Node thisRoot = minHeap.extractMin();
+		  int thisDist = thisRoot.getMinDistance();
+		  ArrayList<Node> neigh = thisRoot.getNeighbors();
+		  ArrayList<Integer> weights = thisRoot.getWeights();
+		  
+		  
+		  
+		  
+		  
+		  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
 	  return null;
   }
   

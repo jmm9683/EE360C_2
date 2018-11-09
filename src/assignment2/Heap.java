@@ -104,6 +104,9 @@ public class Heap {
 		minHeapify(minHeap, 0);
 		return min;
 	}
+	public boolean isEmpty() {
+		return minHeap.size() <= 0;
+	}
 	
   public String toString() {
 		String output = "";
