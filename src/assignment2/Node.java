@@ -11,19 +11,24 @@ private int minDistance;
 	private int nodeName;
 	private ArrayList<Node> neighbors; 
 	private ArrayList<Integer> weights;
+	private ArrayList<Node> path;
 	
 public Node(int x) {
 		nodeName = x;
 		minDistance = Integer.MAX_VALUE;
 		neighbors = new ArrayList<Node>();
 		weights = new ArrayList<Integer>();
+		path = new ArrayList<Node>();
+		
 	}
 	
 public void setNeighborAndWeight(Node n, Integer w) {
 		neighbors.add(n);
 		weights.add(w);
 	}
-	
+	public void addToPath(ArrayList<Node> parentPath){
+		path.addAll(0, parentPath);
+	}
 	public ArrayList<Node> getNeighbors(){
 		return neighbors;
 	}
