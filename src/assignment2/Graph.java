@@ -67,7 +67,9 @@ public class Graph {
 		  	if (thisDist != Integer.MAX_VALUE && neigh.get(i).getMinDistance() > (weights.get(i) + thisDist)){
 				neigh.get(i).setMinDistance(weights.get(i) + thisDist);
 				int neighName = neigh.get(i).getNodeName();
-				reHeap(neighName);
+				int neighIndex = findNodeIndex(neighName);
+				if(neighIndex != 0)
+					reHeapify(neighIndex);
 			}
 		  }
 		  
