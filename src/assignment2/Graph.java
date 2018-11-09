@@ -56,13 +56,21 @@ public class Graph {
 			  vertices.get(i).setMinDistance(Integer.MAX_VALUE);
 		  }
 	  }
-	  //https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/
+	 
 	  minHeap.buildHeap(vertices); //heap of uninitialized distances and root at root
 	  while (!minHeap.isEmpty()) {
 		  Node thisRoot = minHeap.extractMin();
 		  int thisDist = thisRoot.getMinDistance();
 		  ArrayList<Node> neigh = thisRoot.getNeighbors();
 		  ArrayList<Integer> weights = thisRoot.getWeights();
+		  for(int i = 0; i < neigh.size(); i++){
+		  	if (thisDist != Integer.MAX_VALUE && neigh.get(i).getMinDistance() > (weights.get(i) + thisDist)){
+				neigh.get(i).setMinDistance(weights.get(i) + thisDist);
+				int neighName = neigh.get(i).getNodeName();
+				reHeap(neighName);
+			}
+		  }
+		  
 		  
 		  
 		  
